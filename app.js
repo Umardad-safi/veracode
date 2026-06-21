@@ -3,7 +3,8 @@ const app = express();
 
 // ❌ vulnerable SQL-like pattern (for learning)
 app.get("/user", (req, res) => {
-  const id = req.query.id;
+    const id = Number(req.query.id);
+
 
   const query = "SELECT * FROM users WHERE id = " + id;
 
