@@ -7,7 +7,13 @@ app.get("/user", (req, res) => {
 
   const query = "SELECT * FROM users WHERE id = " + id;
 
-  res.send("Query executed: " + query);
+  //   res.send("Query executed: " + query);
+  //   instead of this we use the below response to remove the vulnerabilities and to make it more secure
+
+  res.json({
+    message: "Request received",
+    id: Number(id),
+  });
 });
 
 app.listen(3000, () => {
