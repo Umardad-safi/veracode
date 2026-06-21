@@ -10,9 +10,15 @@ app.get("/user", (req, res) => {
   //   res.send("Query executed: " + query);
   //   instead of this we use the below response to remove the vulnerabilities and to make it more secure
 
+  if (isNaN(id)) {
+    return res.status(400).json({
+      error: "Invalid user ID",
+    });
+  }
+
   res.json({
-    message: "Request received",
-    id: Number(id),
+    message: "Request received successfully",
+    userId: id,
   });
 });
 
